@@ -1,4 +1,4 @@
-package labs.first.exceptions;
+package labs.exceptions;
 
 //задания несуществующего имени модели
 public class NoSuchModelNameException extends Exception {

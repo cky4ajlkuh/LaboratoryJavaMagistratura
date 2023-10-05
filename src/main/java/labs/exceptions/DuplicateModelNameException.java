@@ -1,4 +1,4 @@
-package labs.first.exceptions;
+package labs.exceptions;
 
 //дублирования названия моделей
 public class DuplicateModelNameException extends Exception {

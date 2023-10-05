@@ -1,7 +1,7 @@
-package labs.first;
+package labs;
 
-import labs.first.exceptions.DuplicateModelNameException;
-import labs.first.exceptions.NoSuchModelNameException;
+import labs.exceptions.DuplicateModelNameException;
+import labs.exceptions.NoSuchModelNameException;
 
 import java.io.*;
 
@@ -18,18 +18,18 @@ public class Viewer {
 
     public static void printAllModels(TransportVehicle vehicle) {
         String[] models = vehicle.getNamesOfModels();
-        System.out.print("Все модели: ");
+        //System.out.print("Все модели: ");
         for (String model : models) {
-            System.out.print(model + "  ");
+            System.out.println(model + "  ");
         }
         System.out.println();
     }
 
     public static void printAllPrices(TransportVehicle vehicle) {
         double[] prices = vehicle.getPrices();
-        System.out.print("Все цены: ");
+        //System.out.print("Все цены: ");
         for (double price : prices) {
-            System.out.print(price + "  ");
+            System.out.println(price + "  ");
         }
         System.out.println();
     }
@@ -58,7 +58,6 @@ public class Viewer {
         for (int i = 0; i < size; i++) {
             vehicle.addNameAndPrice(new String(readBytes(stream, stream.readInt())), stream.readDouble());
         }
-        stream.close();
         return vehicle;
     }
 
@@ -85,7 +84,6 @@ public class Viewer {
         for (int i = 0; i < size; i++) {
             vehicle.addNameAndPrice(reader.readLine(), Double.parseDouble(reader.readLine()));
         }
-        reader.close();
         return vehicle;
     }
 

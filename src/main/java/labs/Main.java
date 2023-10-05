@@ -1,62 +1,62 @@
 package labs;
 
-import labs.first.Car;
-import labs.first.Motorcycle;
-import labs.first.TransportVehicle;
-import labs.first.Viewer;
-import labs.first.exceptions.DuplicateModelNameException;
-import labs.first.exceptions.NoSuchModelNameException;
+import labs.threads.*;
 
-import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class Main {
-    public static void main(String[] args) throws NoSuchModelNameException, DuplicateModelNameException, IOException, ClassNotFoundException {
-        TransportVehicle vehicle = new Car("BMW", 10);
-        printAll(vehicle);
-        Path bytes = Paths.get("Byte.bin");
-        Path chars = Paths.get("Char.txt");
-        Path serialization = Paths.get("Serialization.bin");
-        TransportVehicle deserializationVehicle, byteVehicle, charVehicle, systemVehicle;
+    private final static TransportVehicle vehicle = new Car("BMW", 10);
+    private final static TransportSynchronizer synchronizer = new TransportSynchronizer(vehicle);
 
-        // Байтовые потоки
-        System.out.println(bytes);
-        Viewer.outputVehicle(vehicle, Files.newOutputStream(bytes));
-        byteVehicle = Viewer.inputVehicle(Files.newInputStream(bytes));
-        printAll(byteVehicle);
+    private final static ReentrantLock lock = new ReentrantLock();
 
-        // Символьные потоки
-        System.out.println(chars);
-        Viewer.writeVehicle(vehicle, new FileWriter(String.valueOf(chars)));
-        charVehicle = Viewer.readVehicle(new FileReader(String.valueOf(chars)));
-        printAll(charVehicle);
+    public static void main(String[] args) throws InterruptedException {
 
-        // System.in и System.out, format: ClassName brand countOfModels <model1> <price1> <model2> <price2>....
-        Viewer.writeVehicle(vehicle, new OutputStreamWriter(System.out));
-        systemVehicle = Viewer.readVehicle(new InputStreamReader(System.in));
-        printAll(systemVehicle);
+        // 1-oe
+        Thread prices = new PrinterPrices(vehicle);
+        Thread models = new PrinterModels(vehicle);
+        prices.setPriority(Thread.MAX_PRIORITY);
+        models.setPriority(Thread.MIN_PRIORITY);
+        models.start();
+        prices.start();
 
-        //Сериализация
-        System.out.println(serialization);
-        ObjectOutputStream outputStream = new ObjectOutputStream(Files.newOutputStream(serialization));
-        ObjectInputStream inputStream = new ObjectInputStream(Files.newInputStream(serialization));
-        outputStream.writeObject(vehicle);
-        Object o = inputStream.readObject();
-        deserializationVehicle = o.getClass().getSimpleName().equals(Car.class.getSimpleName()) ? (Car) o : (Motorcycle) o;
-        inputStream.close();
-        outputStream.close();
-        printAll(deserializationVehicle);
-    }
+        // 2-oe
 
-    private static void printAll(TransportVehicle vehicle) {
-        System.out.println("__________________________________________");
-        System.out.println("Тип: " + vehicle.getClass().getSimpleName());
-        System.out.println("Бренд: " + vehicle.getBrand());
-        System.out.println("Кол-во моделей: " + vehicle.getSize());
-        Viewer.printAllPrices(vehicle);
-        Viewer.printAllModels(vehicle);
-        System.out.println("__________________________________________");
+        Thread syncModels = new Thread(new PrinterModelsSync(synchronizer));
+        Thread syncPrices = new Thread(new PrinterPricesSync(synchronizer));
+        syncModels.start();
+        syncPrices.start();
+
+        // 3-ьe
+        Thread lockModels = new Thread(new PrinterModelsLock(vehicle, lock));
+        Thread lockPrices = new Thread(new PrinterPricesLock(vehicle, lock));
+        lockModels.start();
+        lockPrices.start();
+
+        // 4-oe
+        ExecutorService service = Executors.newFixedThreadPool(2);
+        TransportVehicle[] vehicles = new TransportVehicle[]{
+                new Car("Kalina", 2),
+                new Car("Vesta", 3),
+                new Motorcycle("Jupiter", 4),
+                new Motorcycle("URAL", 5)};
+        for (int i = 0; i < 4; i++) {
+            service.submit(new PrinterBrand(vehicles[i]));
+        }
+        service.shutdown();
+
+        // 5-oe
+        ArrayBlockingQueue<TransportVehicle> queue = new ArrayBlockingQueue<>(1);
+        String[] files = new String[]{"file0.txt", "file1.txt", "file2.txt", "file3.txt", "file4.txt"};
+        for (String file : files) {
+            Thread thread = new Thread(new ReaderTransport(file, queue));
+            thread.start();
+        }
+        for (int i = 0; i != 5; i++) {
+            System.out.println(queue.take().getBrand());
+        }
     }
 }

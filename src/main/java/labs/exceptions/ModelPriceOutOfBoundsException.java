@@ -1,4 +1,4 @@
-package labs.first.exceptions;
+package labs.exceptions;
 
 //задание неверной цены модели
 public class ModelPriceOutOfBoundsException extends RuntimeException {

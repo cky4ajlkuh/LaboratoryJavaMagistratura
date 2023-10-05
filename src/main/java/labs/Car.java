@@ -1,8 +1,8 @@
-package labs.first;
+package labs;
 
-import labs.first.exceptions.DuplicateModelNameException;
-import labs.first.exceptions.ModelPriceOutOfBoundsException;
-import labs.first.exceptions.NoSuchModelNameException;
+import labs.exceptions.DuplicateModelNameException;
+import labs.exceptions.ModelPriceOutOfBoundsException;
+import labs.exceptions.NoSuchModelNameException;
 
 import java.io.Serializable;
 import java.util.Arrays;
@@ -27,7 +27,7 @@ public class Car implements TransportVehicle {
         this.brand = brand;
         models = new Model[size];
         for (int i = 0; i < size; i++) {
-            models[i] = new Model(i + "i", i);
+            models[i] = new Model(i + "_model", i);
         }
     }
 

@@ -1,10 +1,10 @@
-package labs.first.threads;
+package labs.threads;
 
-import labs.first.TransportVehicle;
-import labs.first.Viewer;
+import labs.TransportVehicle;
+import labs.Viewer;
 
 public class PrinterModels extends Thread {
-    TransportVehicle vehicle;
+    private final TransportVehicle vehicle;
 
     public PrinterModels(TransportVehicle vehicle) {
         this.vehicle = vehicle;

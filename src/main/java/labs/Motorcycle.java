@@ -1,8 +1,8 @@
-package labs.first;
+package labs;
 
-import labs.first.exceptions.DuplicateModelNameException;
-import labs.first.exceptions.ModelPriceOutOfBoundsException;
-import labs.first.exceptions.NoSuchModelNameException;
+import labs.exceptions.DuplicateModelNameException;
+import labs.exceptions.ModelPriceOutOfBoundsException;
+import labs.exceptions.NoSuchModelNameException;
 
 import java.io.Serializable;
 
