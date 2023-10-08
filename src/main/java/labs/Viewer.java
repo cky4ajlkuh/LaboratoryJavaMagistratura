@@ -18,18 +18,18 @@ public class Viewer {
 
     public static void printAllModels(TransportVehicle vehicle) {
         String[] models = vehicle.getNamesOfModels();
-        //System.out.print("Все модели: ");
+        System.out.print("Все модели: ");
         for (String model : models) {
-            System.out.println(model + "  ");
+            System.out.print(model + "  ");
         }
         System.out.println();
     }
 
     public static void printAllPrices(TransportVehicle vehicle) {
         double[] prices = vehicle.getPrices();
-        //System.out.print("Все цены: ");
+        System.out.print("Все цены: ");
         for (double price : prices) {
-            System.out.println(price + "  ");
+            System.out.print(price + "  ");
         }
         System.out.println();
     }
