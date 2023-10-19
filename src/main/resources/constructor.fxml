@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#onKeysPressed" prefHeight="475.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="labs.calculator.CalculatorController">
+    <Button layoutX="25.0" layoutY="150.0" mnemonicParsing="false" onAction="#onPercentButtonAction" prefHeight="35.0" prefWidth="100.0" text="\%" />
+    <Button fx:id="dropAllButton" layoutX="142.0" layoutY="150.0" mnemonicParsing="false" onAction="#onDropAllButtonAction" prefHeight="35.0" prefWidth="100.0" text="CE" />
+    <Button layoutX="258.0" layoutY="150.0" mnemonicParsing="false" onAction="#onDropButtonAction" prefHeight="35.0" prefWidth="100.0" text="C" />
+    <Button fx:id="clearButton" layoutX="375.0" layoutY="150.0" mnemonicParsing="false" onAction="#onClearButtonAction" prefHeight="35.0" prefWidth="100.0">
+        <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@backspace.png" />
+            </ImageView>
+        </graphic>
+    </Button>
+    <Button layoutX="25.0" layoutY="200.0" mnemonicParsing="false" onAction="#onReverseButtonAction" prefHeight="35.0" prefWidth="100.0" text="1/x" />
+    <Button alignment="CENTER" contentDisplay="RIGHT" layoutX="142.0" layoutY="200.0" mnemonicParsing="false" onAction="#onPowButtonAction" prefHeight="35.0" prefWidth="100.0">
+        <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@pow.png" />
+            </ImageView>
+        </graphic>
+    </Button>
+    <Button layoutX="258.0" layoutY="200.0" mnemonicParsing="false" onAction="#onSqrtButtonAction" prefHeight="35.0" prefWidth="100.0">
+        <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@root.png" />
+            </ImageView>
+        </graphic>
+    </Button>
+    <Button fx:id="divideButton" layoutX="375.0" layoutY="200.0" mnemonicParsing="false" onAction="#onDivideButtonAction" prefHeight="35.0" prefWidth="100.0">
+        <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@div.png" />
+            </ImageView>
+        </graphic>
+    </Button>
+    <Button fx:id="sevenButton" layoutX="25.0" layoutY="250.0" mnemonicParsing="false" onAction="#onSevenButtonAction" prefHeight="35.0" prefWidth="100.0" text="7" />
+    <Button fx:id="eightButton" layoutX="142.0" layoutY="250.0" mnemonicParsing="false" onAction="#onEightButtonAction" prefHeight="35.0" prefWidth="100.0" text="8" />
+    <Button fx:id="nineButton" layoutX="258.0" layoutY="250.0" mnemonicParsing="false" onAction="#onNineButtonAction" prefHeight="35.0" prefWidth="100.0" text="9" />
+    <Button fx:id="multiplyButton" layoutX="375.0" layoutY="250.0" mnemonicParsing="false" onAction="#onMultiplyButtonAction" prefHeight="35.0" prefWidth="100.0">
+        <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@mult.png" />
+            </ImageView>
+        </graphic>
+    </Button>
+    <Button fx:id="oneButton" layoutX="25.0" layoutY="350.0" mnemonicParsing="false" onAction="#onOneButtonAction" prefHeight="35.0" prefWidth="100.0" text="1" />
+    <Button fx:id="twoButton" layoutX="142.0" layoutY="350.0" mnemonicParsing="false" onAction="#onTwoButtonAction" prefHeight="35.0" prefWidth="100.0" text="2" />
+    <Button fx:id="threeButton" layoutX="258.0" layoutY="350.0" mnemonicParsing="false" onAction="#onThreeButtonAction" prefHeight="35.0" prefWidth="100.0" text="3" />
+    <Button fx:id="plusButton" layoutX="375.0" layoutY="350.0" mnemonicParsing="false" onAction="#onPlusButtonAction" prefHeight="35.0" prefWidth="100.0">
+        <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@plus.png" />
+            </ImageView>
+        </graphic>
+    </Button>
+    <TextField fx:id="textField" alignment="BOTTOM_RIGHT" disable="true" editable="false" layoutX="25.0" layoutY="62.0" prefHeight="60.0" prefWidth="450.0" promptText="0">
+        <font>
+            <Font size="18.0" />
+        </font>
+    </TextField>
+    <Text layoutX="183.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Калькулятор">
+        <font>
+            <Font name="Garamond Bold" size="24.0" />
+        </font>
+    </Text>
+    <Button layoutX="25.0" layoutY="400.0" mnemonicParsing="false" onAction="#onChangeSignButtonAction" prefHeight="35.0" prefWidth="100.0" text="+/-" />
+    <Button fx:id="zeroButton" layoutX="142.0" layoutY="400.0" mnemonicParsing="false" onAction="#onZeroButtonAction" prefHeight="35.0" prefWidth="100.0" text="0" />
+    <Button fx:id="pointButton" layoutX="258.0" layoutY="400.0" mnemonicParsing="false" onAction="#onPointButtonAction" prefHeight="35.0" prefWidth="100.0">
+        <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@dot.png" />
+            </ImageView>
+        </graphic>
+    </Button>
+    <Button fx:id="equallyButton" layoutX="375.0" layoutY="400.0" mnemonicParsing="false" onAction="#onEquallyButtonAction" prefHeight="35.0" prefWidth="100.0">
+        <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@equal.png" />
+            </ImageView>
+        </graphic>
+    </Button>
+    <Button fx:id="fourButton" layoutX="25.0" layoutY="300.0" mnemonicParsing="false" onAction="#onFourButtonAction" prefHeight="35.0" prefWidth="100.0" text="4" />
+    <Button fx:id="fiveButton" layoutX="142.0" layoutY="300.0" mnemonicParsing="false" onAction="#onFiveButtonAction" prefHeight="35.0" prefWidth="100.0" text="5" />
+    <Button fx:id="sixButton" layoutX="258.0" layoutY="300.0" mnemonicParsing="false" onAction="#onSixButtonAction" prefHeight="35.0" prefWidth="100.0" text="6" />
+    <Button fx:id="minusButton" layoutX="375.0" layoutY="300.0" mnemonicParsing="false" onAction="#onMinusButtonAction" prefHeight="35.0" prefWidth="100.0">
+        <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@minus.png" />
+            </ImageView>
+        </graphic>
+    </Button>
+</AnchorPane>
