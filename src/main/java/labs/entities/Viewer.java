@@ -1,5 +1,8 @@
-package labs;
+package labs.entities;
 
+import labs.TransportVehicle;
+import labs.entities.Car;
+import labs.entities.Motorcycle;
 import labs.exceptions.DuplicateModelNameException;
 import labs.exceptions.NoSuchModelNameException;
 

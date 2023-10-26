@@ -1,7 +1,7 @@
 package labs.threads;
 
 import labs.TransportVehicle;
-import labs.Viewer;
+import labs.entities.Viewer;
 
 import java.util.concurrent.locks.Lock;
 

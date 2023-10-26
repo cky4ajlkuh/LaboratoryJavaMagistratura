@@ -1,5 +1,6 @@
-package labs;
+package labs.entities;
 
+import labs.TransportVehicle;
 import labs.exceptions.DuplicateModelNameException;
 import labs.exceptions.ModelPriceOutOfBoundsException;
 import labs.exceptions.NoSuchModelNameException;
@@ -18,7 +19,6 @@ public class Car implements TransportVehicle {
             this.price = price;
         }
     }
-
     private String brand;
 
     private Model[] models;

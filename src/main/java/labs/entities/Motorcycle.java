@@ -1,5 +1,6 @@
-package labs;
+package labs.entities;
 
+import labs.TransportVehicle;
 import labs.exceptions.DuplicateModelNameException;
 import labs.exceptions.ModelPriceOutOfBoundsException;
 import labs.exceptions.NoSuchModelNameException;

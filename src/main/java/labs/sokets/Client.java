@@ -1,6 +1,6 @@
 package labs.sokets;
 
-import labs.Car;
+import labs.entities.Car;
 import labs.TransportVehicle;
 
 import java.io.*;

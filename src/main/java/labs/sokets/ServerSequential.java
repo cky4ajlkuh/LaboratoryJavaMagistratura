@@ -1,9 +1,9 @@
 package labs.sokets;
 
-import labs.Car;
-import labs.Motorcycle;
+import labs.entities.Car;
+import labs.entities.Motorcycle;
 import labs.TransportVehicle;
-import labs.Viewer;
+import labs.entities.Viewer;
 
 import java.io.*;
 import java.net.ServerSocket;

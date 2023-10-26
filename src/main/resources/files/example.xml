@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<student lastname = "Константинов">
+    <subject title="Математический анализ" mark="5"/>
+    <subject title="Разработка Java-приложений" mark="4"/>
+    <subject title="Общая физика: механика" mark="3"/>
+    <average>2</average>
+</student>

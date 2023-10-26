@@ -1,4 +1,4 @@
-package labs.calculator;
+package labs.calculator.fx;
 
 
 import javafx.application.Application;
@@ -12,11 +12,11 @@ public class CalculatorApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/constructor.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/calculator/constructor.fxml"));
         loader.setClassLoader(getClass().getClassLoader());
         Parent root = loader.load();
         primaryStage.setScene(new Scene(root));
-        primaryStage.getIcons().add(new Image("icons8-math.gif"));
+        primaryStage.getIcons().add(new Image("calculator/icons8-math.gif"));
         primaryStage.show();
     }
 

@@ -1,6 +1,6 @@
 package labs.threads;
 
-import labs.Car;
+import labs.entities.Car;
 import labs.TransportVehicle;
 
 import java.io.BufferedReader;

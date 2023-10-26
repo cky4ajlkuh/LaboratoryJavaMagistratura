@@ -1,4 +1,4 @@
-package labs.calculator;
+package labs.calculator.fx;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
