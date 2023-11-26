@@ -10,7 +10,7 @@ public class ApplicationDataSource {
 
     static {
         dataSource = new PGSimpleDataSource();
-        dataSource.setServerNames(new String[]{"localhost:5432"});
+        //dataSource.setServerNames(new String[]{"localhost:5432"});
         dataSource.setUser("postgres");
         dataSource.setPassword("1");
         dataSource.setDatabaseName("Music_store");
