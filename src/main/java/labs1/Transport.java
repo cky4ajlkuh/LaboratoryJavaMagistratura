@@ -1,15 +1,15 @@
-package labs;
+package labs1;
 
-import labs.exceptions.DuplicateModelNameException;
-import labs.exceptions.NoSuchModelNameException;
+import labs1.exceptions.DuplicateModelNameException;
+import labs1.exceptions.NoSuchModelNameException;
 
 import java.io.Serializable;
 
-public interface TransportVehicle extends Serializable {
+public interface Transport extends Serializable {
 
     String[] getNamesOfModels();
 
-    public void setNameOfModel(String oldNameOfModel, String newNameOfModel) throws NoSuchModelNameException, DuplicateModelNameException;
+    void setNameOfModel(String oldNameOfModel, String newNameOfModel) throws NoSuchModelNameException, DuplicateModelNameException;
 
     double getPrice(String nameOfModel) throws NoSuchModelNameException;
 

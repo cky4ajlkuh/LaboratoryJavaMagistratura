@@ -1,14 +1,14 @@
-package labs.threads;
+package labs1.threads;
 
-import labs.TransportVehicle;
+import labs1.Transport;
 
 public class TransportSynchronizer {
-    private final TransportVehicle v;
+    private final Transport v;
     private volatile int current = 0;
     private final Object lock = new Object();
     private boolean set = false;
 
-    public TransportSynchronizer(TransportVehicle v) {
+    public TransportSynchronizer(Transport v) {
         this.v = v;
     }
 

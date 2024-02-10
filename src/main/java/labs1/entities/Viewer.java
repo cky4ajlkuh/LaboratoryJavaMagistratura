@@ -1,16 +1,26 @@
-package labs.entities;
+package labs1.entities;
 
-import labs.TransportVehicle;
-import labs.entities.Car;
-import labs.entities.Motorcycle;
-import labs.exceptions.DuplicateModelNameException;
-import labs.exceptions.NoSuchModelNameException;
+import labs1.Transport;
+import labs1.exceptions.DuplicateModelNameException;
+import labs1.exceptions.NoSuchModelNameException;
+import labs2.lab1.AutoFactory;
+import labs2.lab1.TransportFactory;
 
 import java.io.*;
 
 public class Viewer {
 
-    public static double arithmeticMean(TransportVehicle vehicle) {
+    private static TransportFactory factory = new AutoFactory();
+
+    public static void setTransportFactory(TransportFactory transportFactory) {
+        factory = transportFactory;
+    }
+
+    public static Transport createInstance(String name, int size) {
+        return factory.createInstance(name, size);
+    }
+
+    public static double arithmeticMean(Transport vehicle) {
         double[] prices = vehicle.getPrices();
         double sum = 0;
         for (double price : prices) {
@@ -19,7 +29,7 @@ public class Viewer {
         return sum / prices.length;
     }
 
-    public static void printAllModels(TransportVehicle vehicle) {
+    public static void printAllModels(Transport vehicle) {
         String[] models = vehicle.getNamesOfModels();
         System.out.print("Все модели: ");
         for (String model : models) {
@@ -28,7 +38,7 @@ public class Viewer {
         System.out.println();
     }
 
-    public static void printAllPrices(TransportVehicle vehicle) {
+    public static void printAllPrices(Transport vehicle) {
         double[] prices = vehicle.getPrices();
         System.out.print("Все цены: ");
         for (double price : prices) {
@@ -37,7 +47,7 @@ public class Viewer {
         System.out.println();
     }
 
-    public static void outputVehicle(TransportVehicle vehicle, OutputStream out) throws IOException, NoSuchModelNameException {
+    public static void outputVehicle(Transport vehicle, OutputStream out) throws IOException, NoSuchModelNameException {
         DataOutputStream stream = new DataOutputStream(out);
         stream.writeInt(vehicle.getClass().getName().getBytes().length);
         writeBytes(stream, vehicle.getClass().getSimpleName().getBytes());
@@ -52,11 +62,11 @@ public class Viewer {
         stream.flush();
     }
 
-    public static TransportVehicle inputVehicle(InputStream input) throws IOException, DuplicateModelNameException {
+    public static Transport inputVehicle(InputStream input) throws IOException, DuplicateModelNameException {
         DataInputStream stream = new DataInputStream(input);
         String type = new String(readBytes(stream, stream.readInt()));
         String brand = new String(readBytes(stream, stream.readInt()));
-        TransportVehicle vehicle = (type.equals(Car.class.getSimpleName())) ? new Car(brand, 0) : new Motorcycle(brand, 0);
+        Transport vehicle = (type.equals(Car.class.getSimpleName())) ? new Car(brand, 0) : new Motorcycle(brand, 0);
         int size = stream.readInt();
         for (int i = 0; i < size; i++) {
             vehicle.addNameAndPrice(new String(readBytes(stream, stream.readInt())), stream.readDouble());
@@ -64,7 +74,7 @@ public class Viewer {
         return vehicle;
     }
 
-    public static void writeVehicle(TransportVehicle vehicle, Writer out) {
+    public static void writeVehicle(Transport vehicle, Writer out) {
         PrintWriter writer = new PrintWriter(out);
         writer.println(vehicle.getClass().getSimpleName());
         writer.println(vehicle.getBrand());
@@ -78,11 +88,11 @@ public class Viewer {
         writer.flush();
     }
 
-    public static TransportVehicle readVehicle(Reader in) throws IOException, DuplicateModelNameException {
+    public static Transport readVehicle(Reader in) throws IOException, DuplicateModelNameException {
         BufferedReader reader = new BufferedReader(in);
         String type = reader.readLine();
         String brand = reader.readLine();
-        TransportVehicle vehicle = (type.equals(Car.class.getSimpleName())) ? new Car(brand, 0) : new Motorcycle(brand, 0);
+        Transport vehicle = (type.equals(Car.class.getSimpleName())) ? new Car(brand, 0) : new Motorcycle(brand, 0);
         int size = Integer.parseInt(reader.readLine());
         for (int i = 0; i < size; i++) {
             vehicle.addNameAndPrice(reader.readLine(), Double.parseDouble(reader.readLine()));

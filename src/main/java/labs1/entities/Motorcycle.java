@@ -1,14 +1,15 @@
-package labs.entities;
+package labs1.entities;
 
-import labs.TransportVehicle;
-import labs.exceptions.DuplicateModelNameException;
-import labs.exceptions.ModelPriceOutOfBoundsException;
-import labs.exceptions.NoSuchModelNameException;
+import labs1.Transport;
+import labs1.exceptions.DuplicateModelNameException;
+import labs1.exceptions.ModelPriceOutOfBoundsException;
+import labs1.exceptions.NoSuchModelNameException;
 
 import java.io.Serializable;
 
-public class Motorcycle implements TransportVehicle {
-    private class Model implements Serializable {
+public class Motorcycle implements Transport, Cloneable {
+    private class Model implements Serializable, Cloneable {
+        private static final long serialVersionUID = 5165605677394760811L;
         private String nameOfModel;
         private double price;
         Model prev = null;
@@ -18,19 +19,24 @@ public class Motorcycle implements TransportVehicle {
             this.nameOfModel = nameOfModel;
             this.price = price;
         }
+
+        @Override
+        protected Object clone() throws CloneNotSupportedException {
+            return super.clone();
+        }
     }
 
     private String brand;
-    private Model head = new Model("0", 0);
-    private int size = 0;
-
-    private transient long lastModified;
+    private Model head;
+    private int size;
 
     {
-        lastModified = System.currentTimeMillis();
+        long lastModified = System.currentTimeMillis();
+        System.out.println("Last modified: " + lastModified);
     }
 
     public Motorcycle(String brand, int size) {
+        head = new Model("0", 0);
         this.brand = brand;
         this.size = size;
         head.prev = head;
@@ -179,5 +185,21 @@ public class Motorcycle implements TransportVehicle {
 
     public boolean isEmpty() {
         return head == null;
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        Motorcycle clone = (Motorcycle) super.clone();
+        clone.head = (Model) head.clone();
+        clone.head.prev = clone.head;
+        clone.head.next = clone.head;
+        for (int i = 0; i < size; i++) {
+            Model node = new Model(i + "Name", i + 10);
+            node.prev = clone.head.prev;
+            node.next = clone.head;
+            clone.head.prev.next = node;
+            clone.head.prev = node;
+        }
+        return clone;
     }
 }
