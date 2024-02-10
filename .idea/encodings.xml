@@ -3,5 +3,7 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/laboratory8/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/laboratory8/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/out.bin" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/out.txt" charset="windows-1251" />
   </component>
 </project>

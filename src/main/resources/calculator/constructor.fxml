@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#onKeysPressed" prefHeight="475.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="labs.calculator.fx.CalculatorController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#onKeysPressed" prefHeight="475.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="labs1.calculator.fx.CalculatorController">
     <Button layoutX="25.0" layoutY="150.0" mnemonicParsing="false" onAction="#onPercentButtonAction" prefHeight="35.0" prefWidth="100.0" text="\%" />
     <Button fx:id="dropAllButton" layoutX="142.0" layoutY="150.0" mnemonicParsing="false" onAction="#onDropAllButtonAction" prefHeight="35.0" prefWidth="100.0" text="CE" />
     <Button layoutX="258.0" layoutY="150.0" mnemonicParsing="false" onAction="#onDropButtonAction" prefHeight="35.0" prefWidth="100.0" text="C" />
