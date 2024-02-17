@@ -5,6 +5,7 @@ import labs1.exceptions.DuplicateModelNameException;
 import labs1.exceptions.NoSuchModelNameException;
 import labs2.lab1.AutoFactory;
 import labs2.lab1.TransportFactory;
+import labs2.lab2.TransportWrapper;
 
 import java.io.*;
 
@@ -14,6 +15,10 @@ public class Viewer {
 
     public static void setTransportFactory(TransportFactory transportFactory) {
         factory = transportFactory;
+    }
+
+    public static synchronized TransportWrapper synchronizedTransport(Transport t) {
+        return new TransportWrapper(t);
     }
 
     public static Transport createInstance(String name, int size) {
