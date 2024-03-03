@@ -1,0 +1,1 @@
+Type: Motorcycle; Brand: BMW; Amount: 4 model 0; price: 10.0; name: 0Name model 1; price: 11.0; name: 1Name model 2; price: 12.0; name: 2Name model 3; price: 13.0; name: 3Name
