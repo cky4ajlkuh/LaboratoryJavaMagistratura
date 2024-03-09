@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.labs2.state.StateController">
+    <Button fx:id="semesterButton" layoutX="100.0" layoutY="73.0" mnemonicParsing="false" text="Семестр" onMousePressed="#setStateSemester"/>
+    <Button fx:id="holidaysButton" layoutX="274.0" layoutY="73.0" mnemonicParsing="false" text="Каникулы" onMousePressed="#setStateHolidays"/>
+    <Button fx:id="sessionButton" layoutX="442.0" layoutY="73.0" mnemonicParsing="false" text="Сессия" onMousePressed="#setStateSession" />
+   <ImageView fx:id="defaultState" fitHeight="150.0" fitWidth="200.0" layoutX="225.0" layoutY="200.0"
+              pickOnBounds="true" preserveRatio="true">
+      <Image url="@../../../default.png"/>
+   </ImageView>
+   <ImageView fx:id="goodState" fitHeight="150.0" fitWidth="200.0" layoutX="225.0" layoutY="200.0" pickOnBounds="true"
+              preserveRatio="true" visible="false">
+      <Image url="@../../../states/good.png"/>
+   </ImageView>
+   <ImageView fx:id="sadState" fitHeight="150.0" fitWidth="200.0" layoutX="225.0" layoutY="200.0" pickOnBounds="true"
+              preserveRatio="true" visible="false">
+      <Image url="@../../../states/sad.png"/>
+   </ImageView>
+   <ImageView fx:id="sleepState" fitHeight="150.0" fitWidth="200.0" layoutX="225.0" layoutY="200.0" pickOnBounds="true"
+              preserveRatio="true" visible="false">
+      <Image url="@../../../states/sleep.png"/>
+   </ImageView>
+</AnchorPane>

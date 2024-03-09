@@ -8,7 +8,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
             prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="labs2.lab2.TrafficController">
+            fx:controller="semestr2.lab2.TrafficController">
    <ImageView fx:id="trafficLights" fitHeight="200.0" fitWidth="200.0" layoutX="299.0" layoutY="169.0">
       <Image url="@labs2.lab2/traffic_lights.png"/>
    </ImageView>

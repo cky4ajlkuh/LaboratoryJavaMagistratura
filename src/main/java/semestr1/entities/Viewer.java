@@ -81,7 +81,7 @@ public class Viewer {
 
     public static void writeVehicle(Transport vehicle, Writer out) {
         PrintWriter writer = new PrintWriter(out);
-        writer.println(vehicle.getClass().getSimpleName());
+        writer.println(vehicle.getClass());
         writer.println(vehicle.getBrand());
         writer.println(vehicle.getSize());
         String[] names = vehicle.getNamesOfModels();

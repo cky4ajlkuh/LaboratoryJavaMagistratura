@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.labs2.observer.FaceController">
+   <Circle fill="DODGERBLUE" layoutX="300.0" layoutY="200.0" radius="200.0" stroke="BLACK" strokeType="INSIDE" />
+   <ImageView fx:id="noseBlack" fitHeight="130.0" fitWidth="150.0" layoutX="225.0" layoutY="150.0">
+      <Image url="@../../../nose.png"/>
+   </ImageView>
+   <ImageView fx:id="eyeLeftOpen" fitHeight="100.0" fitWidth="100.0" layoutX="162.0" layoutY="75.0">
+      <Image url="@../../../openEye.png"/>
+   </ImageView>
+   <ImageView fx:id="eyeRightOpen" fitHeight="100.0" fitWidth="100.0" layoutX="339.0" layoutY="75.0">
+      <Image url="@../../../openEye.png"/>
+   </ImageView>
+   <ImageView fx:id="mouthOpen" fitHeight="100.0" fitWidth="175.0" layoutX="216.0" layoutY="282.0">
+      <Image url="@../../../mouth.png"/>
+   </ImageView>
+   <ImageView fx:id="eyeRightClose" fitHeight="100.0" fitWidth="100.0" layoutX="339.0" layoutY="75.0" visible="false">
+      <Image url="@../../../closeEye.png"/>
+   </ImageView>
+   <ImageView fx:id="eyeLeftClose" fitHeight="100.0" fitWidth="100.0" layoutX="162.0" layoutY="75.0" visible="false">
+      <Image url="@../../../closeEye.png"/>
+   </ImageView>
+   <ImageView fx:id="noseColor" fitHeight="150.0" fitWidth="120.0" layoutX="240.0" layoutY="135.0" visible="false">
+      <Image url="@../../../noseColor.png"/>
+   </ImageView>
+   <ImageView fx:id="smile" fitHeight="119.0" fitWidth="200.0" layoutX="203.0" layoutY="263.0" visible="false">
+      <Image url="@../../../states/smile.png"/>
+   </ImageView>
+</AnchorPane>

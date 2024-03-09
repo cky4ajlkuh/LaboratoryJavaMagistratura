@@ -1,0 +1,16 @@
+class semestr1.entities.Motorcycle
+Suzuki
+2
+0Name
+10.0
+1Name
+11.0
+class semestr1.entities.Motorcycle
+BMW
+3
+0Name
+10.0
+1Name
+11.0
+2Name
+12.0

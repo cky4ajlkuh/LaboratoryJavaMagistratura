@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+
+
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.labs2.Controller">
+    <ImageView fx:id="trafficLights">
+    </ImageView>
+    <ImageView fx:id="lightningMcQueen">
+    </ImageView>
+    <Circle fx:id="redLight" fill="#000000" layoutX="400.0" layoutY="216.0" radius="7.0" stroke="RED" strokeType="INSIDE"/>
+    <Circle fx:id="yellowLight" fill="#000000" layoutX="400.0" layoutY="230.0" radius="7.0" stroke="#ffdb1f"
+            strokeType="INSIDE"/>
+    <Circle fx:id="greenLight" fill="#000000" layoutX="400.0" layoutY="245.0" radius="7.0" stroke="#3aff1f"
+            strokeType="INSIDE"/>
+</AnchorPane>
